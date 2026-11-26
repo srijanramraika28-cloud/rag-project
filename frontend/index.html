@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartDoc AI — Chat with your PDFs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">S</div><div><strong>SmartDoc <span>AI</span></strong><small>YOUR DOCUMENT ASSISTANT</small></div></div>
+      <button class="new-chat" id="newChatBtn"><span>＋</span> New conversation</button>
+      <div class="side-label">WORKSPACE</div>
+      <div class="nav-item active"><span>▤</span> My documents <span class="nav-count" id="docCount">0</span></div>
+      <div class="side-label documents-label">YOUR LIBRARY</div>
+      <div id="documentList" class="document-list"><div class="empty-library">No documents yet.<br>Upload a PDF to get started.</div></div>
+      <div class="sidebar-bottom"><div class="status-dot"></div><span id="connectionText">Connecting to local server…</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><div class="mobile-brand">SmartDoc <span>AI</span></div><div class="topbar-right"><span class="secure-pill"><i></i> Private workspace</span><button class="icon-btn" id="clearChatBtn" title="Clear conversation">↺</button></div></header>
+      <section class="content" id="contentArea">
+        <div class="welcome" id="welcomePanel">
+          <div class="eyebrow"><span class="sparkle">✦</span> YOUR AI STUDY COMPANION</div>
+          <h1>Understand your<br><em>documents</em> better.</h1>
+          <p class="welcome-copy">Upload your PDFs and ask anything. SmartDoc finds the relevant information and gives you clear answers grounded in your documents.</p>
+          <div class="upload-card" id="dropZone">
+            <div class="upload-icon">↑</div><h3>Drop your PDF here</h3><p>or <button class="text-button" id="browseBtn">browse files</button> from your computer</p>
+            <div class="file-note">PDF files only · Max 25 MB each</div>
+            <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden />
+          </div>
+          <div class="suggestion-title">HERE'S WHAT YOU CAN ASK</div>
+          <div class="suggestions">
+            <button class="suggestion" data-question="Summarize the key concepts in this document."><span>✧</span><b>Summarize this PDF</b><small>Get the important points</small></button>
+            <button class="suggestion" data-question="Explain the most important topics in simple language."><span>⌁</span><b>Explain a topic</b><small>Make complex ideas simple</small></button>
+            <button class="suggestion" data-question="Create five important exam questions from this document with answers."><span>✎</span><b>Prepare for exams</b><small>Generate questions and answers</small></button>
+          </div>
+        </div>
+
+        <div class="chat-panel hidden" id="chatPanel">
+          <div class="chat-heading"><div><div class="eyebrow">DOCUMENT CONVERSATION</div><h2>Ask your documents.</h2></div><span class="context-label" id="contextLabel">All documents</span></div>
+          <div class="messages" id="messages"><div class="assistant-message"><div class="avatar">S</div><div class="message-body"><div class="message-author">SmartDoc AI <span>just now</span></div><div class="bubble">Hi! I've got your documents ready. Ask me a question and I'll find the relevant information for you.</div></div></div></div>
+          <div class="composer-wrap"><div class="composer"><textarea id="questionInput" rows="1" placeholder="Ask a question about your documents…"></textarea><button id="sendBtn" class="send-btn" title="Send question">↑</button></div><div class="composer-foot"><span>✦ Answers are generated from your uploaded PDFs</span><span>ENTER to send · SHIFT + ENTER for new line</span></div></div>
+        </div>
+      </section>
+      <footer class="footer">SMARTDOC AI <span>·</span> RETRIEVAL-AUGMENTED GENERATION</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

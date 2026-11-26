@@ -1,0 +1,17 @@
+# Python 3.10+
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+python-multipart>=0.0.9
+python-dotenv>=1.0
+pydantic>=2.6
+
+# RAG pipeline (based on the teacher's demo)
+langchain>=0.2
+langchain-core>=0.2
+langchain-community>=0.2
+langchain-text-splitters>=0.2
+langchain-qdrant>=0.1
+langchain-nvidia-ai-endpoints>=0.3
+qdrant-client>=1.9
+fastembed>=0.3
+pypdf>=4.2
